@@ -41,6 +41,8 @@ const VideoRecord = () => {
     }, RecorderInstance.duration);
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
       mimeType: getSupportedMimeType(),
+      videoBitsPerSecond: 2500000,
+      audioBitsPerSecond: 128000,
     });
     mediaRecorderRef.current.addEventListener(
       "dataavailable",

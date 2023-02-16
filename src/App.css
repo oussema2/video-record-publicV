@@ -1,0 +1,224 @@
+.video-record-container {
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+svg {
+  pointer-events: none;
+}
+.App {
+  position: relative;
+}
+
+.timer-before-record-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.element-beforeRecord {
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  z-index: 21;
+  text-align: center;
+  padding: 50px 80px;
+}
+
+.video-record-header {
+  height: 50px;
+  margin: 30px auto;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  min-width: 100%;
+  transition: none 0s ease 0s;
+  will-change: width;
+  max-width: 100%;
+  padding: 0px 100px;
+}
+
+.video-record-header-right {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  background: rgb(255, 87, 87);
+  transition: opacity 0.1s ease 0s;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 16px;
+  font-size: 14px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+}
+
+.video-record-main {
+  width: 100%;
+  padding: 0px 100px;
+  margin-top: 20px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0px 32px;
+  will-change: transform, width;
+  backface-visibility: hidden;
+}
+
+.video-record-main-frame {
+  border-radius: 10px;
+  transition: aspect-ratio 0.3s ease 0s;
+  max-width: 100%;
+  max-height: 0px;
+  min-height: min(1000px, max(min(653.062px, 100vh - 290px), 250px));
+  position: relative;
+  margin: 0px;
+  z-index: 1;
+  background: center center / cover transparent;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.camera-component {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: scale(-1, 1);
+  object-fit: cover;
+  visibility: visible;
+}
+
+.video-panne-element {
+  background: none;
+  display: flex;
+  border: none;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 84px;
+  height: 65px;
+  border-radius: 12px;
+  padding: 0px 15px;
+  font-family: Inter, sans-serif;
+  font-size: 0.71875rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  transition: opacity 0.15s ease 0s;
+}
+
+.bar-element {
+  border-right: 1px solid rgb(222, 223, 228);
+  border-radius: 12px;
+  transform: rotate(180deg);
+  height: 40px;
+  margin: 0px 15px;
+}
+
+.video-record-pannel {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 50px;
+  margin-top: 20px;
+}
+
+.svg-color-inactive {
+  color: rgb(223, 224, 229);
+  transition: color 0.15s ease 0s;
+}
+.disabled-icon {
+  fill: red;
+}
+
+.video-pannel-element-label {
+  color: #696f84;
+}
+
+.video-pannel-element-icon::before {
+  content: "";
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: -1;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  background: rgb(223, 224, 229);
+}
+
+.video-panne-element:hover > .video-pannel-element-icon::before {
+  animation: scale-background alternate 0s;
+  display: block;
+}
+.video-pannel-element-icon {
+  cursor: pointer;
+}
+
+.video-pannel-element-icon-audio-camera::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: -1;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  background: rgb(223, 224, 229);
+  display: block;
+}
+.video-pannel-element-icon-audio-camera {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.video-panne-element:hover .pannel-element-icon {
+  color: white;
+}
+
+@keyframes scale-background {
+  from {
+    transform: scale(0);
+    display: block;
+  }
+  to {
+    transform: scale(1);
+    display: block;
+  }
+}
+
+.video-pannel-element-icon-disabled > svg {
+  color: gray;
+}
